@@ -6,6 +6,10 @@ type Node interface {
 	TokenLiteral() string
 }
 
+type Program struct {
+	Statements []Statement
+}
+
 type Statement interface {
 	Node
 	statementNode()
@@ -14,10 +18,6 @@ type Statement interface {
 type Expression interface {
 	Node
 	expressionNode()
-}
-
-type Program struct {
-	Statements []Statement
 }
 
 func (p *Program) TokenLiteral() string {
